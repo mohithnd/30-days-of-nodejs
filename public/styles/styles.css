@@ -1,0 +1,35 @@
+/* styles.css */
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Heading styles */
+h1 {
+  color: #ff6347; /* Coral */
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Paragraph styles */
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Link styles */
+a {
+  color: #008080; /* Teal */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffa07a; /* Light Salmon */
+}
