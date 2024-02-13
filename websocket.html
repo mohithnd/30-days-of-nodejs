@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket Test</title>
+  </head>
+  <body>
+    <h1>WebSocket Testing</h1>
+    <input type="text" id="message" />
+    <input type="submit" value="Send" id="send" />
+    <script>
+      const socket = new WebSocket("ws://localhost:3000");
+      socket.onopen = () => {
+        console.log("WebSocket connection opened");
+        socket.send("Hello from the client!");
+      };
+      socket.onmessage = (event) => {
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          console.log(`Echo from server: ${evt.target.result}`);
+        };
+        reader.readAsText(event.data);
+      };
+      document.getElementById("send").addEventListener("click", () => {
+        const message = document.getElementById("message").value;
+        socket.send(message);
+      });
+      document.getElementById("message").addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+          const message = document.getElementById("message").value;
+          socket.send(message);
+        }
+      });
+    </script>
+  </body>
+</html>
